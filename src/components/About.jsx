@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heart, Award, Users, Globe } from 'lucide-react';
 
-const About: React.FC = () => {
+const About = () => {
   const stats = [
     { icon: Heart, value: '100+', label: 'พันธุ์ข้าวไทย' },
     { icon: Award, value: '50+', label: 'ปีประสบการณ์' },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MessageCircle, X, Send, Bot } from 'lucide-react';
 
-const ChatBot: React.FC = () => {
+const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -20,7 +20,7 @@ const ChatBot: React.FC = () => {
     'คุณค่าทางโภชนาการ'
   ];
 
-  const handleSendMessage = (message?: string) => {
+  const handleSendMessage = (message) => {
     const messageToSend = message || inputMessage.trim();
     if (!messageToSend) return;
 
@@ -61,7 +61,7 @@ const ChatBot: React.FC = () => {
     }, 1000);
   };
 
-  const formatTime = (date: Date) => {
+  const formatTime = (date) => {
     return date.toLocaleTimeString('th-TH', { 
       hour: '2-digit', 
       minute: '2-digit' 

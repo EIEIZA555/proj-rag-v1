@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   const scrollToProducts = () => {
     const element = document.getElementById('products');
     if (element) {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Book, FileText, Video, Download, ExternalLink } from 'lucide-react';
 
-const Knowledge: React.FC = () => {
+const Knowledge = () => {
   const [activeCategory, setActiveCategory] = useState('cultivation');
 
   const categories = [
@@ -94,7 +94,7 @@ const Knowledge: React.FC = () => {
     ]
   };
 
-  const currentData = knowledgeData[activeCategory as keyof typeof knowledgeData] || [];
+  const currentData = knowledgeData[activeCategory] || [];
 
   return (
     <section id="knowledge" className="py-20 bg-gradient-to-br from-orange-50 to-amber-50">

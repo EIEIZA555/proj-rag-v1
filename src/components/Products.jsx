@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Star, ShoppingCart, Eye } from 'lucide-react';
 
-const Products: React.FC = () => {
+const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [

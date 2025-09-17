@@ -1,7 +1,7 @@
 import React from 'react';
 import { Leaf, Droplets, Sun, Thermometer } from 'lucide-react';
 
-const Varieties: React.FC = () => {
+const Varieties = () => {
   const varieties = [
     {
       name: 'ข้าวหอมมะลิ 105',

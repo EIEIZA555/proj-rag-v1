@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Brain as Grain } from 'lucide-react';
 
-interface HeaderProps {
-  activeSection: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ activeSection }) => {
+const Header = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
@@ -17,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     { id: 'contact', label: 'ติดต่อ', href: '#contact' },
   ];
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
