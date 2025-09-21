@@ -9,7 +9,7 @@ const Varieties = () => {
       id: 1,
       name: 'ข้าวหอมมะลิ 105',
       scientificName: 'Oryza sativa L. cv. KDML105',
-      image: 'https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/images/rice105.jpg',
       type: 'ข้าวเจ้า',
       characteristics: [
         { icon: Leaf, label: 'ความยาวเมล็ด', value: '6.0-7.0 มม.' },
@@ -40,7 +40,7 @@ const Varieties = () => {
       id: 2,
       name: 'ข้าวเหนียวขาว',
       scientificName: 'Oryza sativa var. glutinosa',
-      image: 'https://images.pexels.com/photos/1343648/pexels-photo-1343648.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/images/stickyrice.jpg',
       type: 'ข้าวเหนียว',
       characteristics: [
         { icon: Leaf, label: 'ความยาวเมล็ด', value: '4.5-5.5 มม.' },
@@ -71,7 +71,7 @@ const Varieties = () => {
       id: 3,
       name: 'ข้าวไรซ์เบอรี่',
       scientificName: 'Oryza sativa L. cv. Riceberry',
-      image: 'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/images/riceberry.jpg',
       type: 'ข้าวเจ้า (พันธุ์ปรับปรุง)',
       characteristics: [
         { icon: Leaf, label: 'ความยาวเมล็ด', value: '5.5-6.5 มม.' },
@@ -102,7 +102,7 @@ const Varieties = () => {
       id: 4,
       name: 'ข้าวกล้องแดง',
       scientificName: 'Oryza sativa L. (Red Rice)',
-      image: 'https://images.pexels.com/photos/1435948/pexels-photo-1435948.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/images/redrice.jpg',
       type: 'ข้าวเจ้า',
       characteristics: [
         { icon: Leaf, label: 'ความยาวเมล็ด', value: '5.0-6.0 มม.' },
@@ -201,7 +201,7 @@ const Varieties = () => {
             พันธุ์<span className="text-orange-500">ข้าวไทย</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            ศึกษาพันธุ์ข้าวไทยที่หลากหลาย แต่ละพันธุ์มีลักษณะเฉพาะ คุณค่าทางโภชนาการ 
+            ศึกษาพันธุ์ข้าวไทยที่หลากหลาย แต่ละพันธุ์มีลักษณะเฉพาะ คุณค่าทางโภชนาการ
             และวิธีการเพาะปลูกที่แตกต่างกัน พร้อมข้อมูลครบถ้วนสำหรับเกษตรกรและผู้สนใจ
           </p>
         </div>
@@ -279,7 +279,7 @@ const Varieties = () => {
                       {selectedVariety.type}
                     </span>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setSelectedVariety(null)}
                     className="text-gray-500 hover:text-gray-700 text-2xl"
                   >
@@ -295,7 +295,7 @@ const Varieties = () => {
                       alt={selectedVariety.name}
                       className="w-full h-64 object-cover rounded-xl"
                     />
-                    
+
                     <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-4">
                       <h4 className="font-bold text-gray-800 mb-3">ข้อมูลพื้นฐาน</h4>
                       <div className="space-y-2 text-sm">
@@ -304,13 +304,13 @@ const Varieties = () => {
                           <span className="text-gray-600">พื้นที่เพาะปลูก:</span>
                         </div>
                         <p className="text-gray-800 ml-6">{selectedVariety.cultivationArea}</p>
-                        
+
                         <div className="flex items-center gap-2 mt-3">
                           <TrendingUp className="w-4 h-4 text-green-600" />
                           <span className="text-gray-600">ผลผลิต:</span>
                           <span className="font-medium text-gray-800">{selectedVariety.yield}</span>
                         </div>
-                        
+
                         <div className="flex items-center gap-2 mt-3">
                           <Calendar className="w-4 h-4 text-blue-600" />
                           <span className="text-gray-600">วิธีปลูก:</span>
