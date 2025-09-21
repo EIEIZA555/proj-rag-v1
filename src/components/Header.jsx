@@ -10,7 +10,6 @@ const Header = ({ activeSection }) => {
     { id: 'products', label: 'ผลิตภัณฑ์', href: '#products' },
     { id: 'varieties', label: 'พันธุ์ข้าว', href: '#varieties' },
     { id: 'knowledge', label: 'ความรู้', href: '#knowledge' },
-    { id: 'contact', label: 'ติดต่อ', href: '#contact' },
   ];
 
   const scrollToSection = (sectionId) => {

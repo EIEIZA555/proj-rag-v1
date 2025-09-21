@@ -5,7 +5,6 @@ import About from './components/About';
 import Products from './components/Products';
 import Varieties from './components/Varieties';
 import Knowledge from './components/Knowledge';
-import Contact from './components/Contact';
 import ChatBot from './components/ChatBot';
 import './index.css';
 
@@ -14,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'products', 'varieties', 'knowledge', 'contact'];
+      const sections = ['home', 'about', 'products', 'varieties', 'knowledge'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -42,7 +41,6 @@ function App() {
         <Products />
         <Varieties />
         <Knowledge />
-        <Contact />
       </main>
       <ChatBot />
     </div>
