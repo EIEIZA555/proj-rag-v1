@@ -133,7 +133,7 @@ const Varieties = () => {
       id: 5,
       name: 'ข้าวหอมปทุมธานี 1',
       scientificName: 'Oryza sativa L. cv. Pathum Thani 1',
-      image: 'https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/images/pathumrice.jpg',
       type: 'ข้าวเจ้า',
       characteristics: [
         { icon: Leaf, label: 'ความยาวเมล็ด', value: '5.8-6.8 มม.' },
@@ -164,7 +164,7 @@ const Varieties = () => {
       id: 6,
       name: 'ข้าวเหนียวดำ',
       scientificName: 'Oryza sativa var. glutinosa (Black)',
-      image: 'https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/images/stickyblack.jpg',
       type: 'ข้าวเหนียว',
       characteristics: [
         { icon: Leaf, label: 'ความยาวเมล็ด', value: '4.0-5.0 มม.' },
