@@ -15,14 +15,32 @@ const Knowledge = () => {
 
   // Function to handle PDF download
   const handleDownload = (item) => {
-    // Create a temporary link element
-    const link = document.createElement('a');
-    link.href = item.pdfUrl;
-    link.download = `${item.title}.pdf`;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = item.pdfUrl;
+      link.download = item.filename || `${item.title}.pdf`;
+      link.target = '_blank';
+      
+      // Check if file exists before downloading
+      fetch(item.pdfUrl, { method: 'HEAD' })
+        .then(response => {
+          if (response.ok) {
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          } else {
+            alert('ไฟล์ PDF ไม่พบ กรุณาติดต่อผู้ดูแลระบบ');
+          }
+        })
+        .catch(error => {
+          console.error('Error checking file:', error);
+          alert('เกิดข้อผิดพลาดในการดาวน์โหลดไฟล์');
+        });
+    } catch (error) {
+      console.error('Download error:', error);
+      alert('เกิดข้อผิดพลาดในการดาวน์โหลดไฟล์');
+    }
   };
 
   const knowledgeData = {
@@ -31,7 +49,8 @@ const Knowledge = () => {
         title: 'เทคนิคการเตรียมดินและการปลูกข้าวหอมมะลิ',
         description: 'คู่มือการเตรียมดิน การเลือกเมล็ดพันธุ์ และการปลูกข้าวหอมมะลิให้ได้ผลผลิตสูงและคุณภาพดี รวมถึงการจัดการน้ำและปุ๋ย',
         type: 'document',
-        pdfUrl: 'https://www.ricethailand.go.th/rkb3/doc/cultivation-guide.pdf',
+        pdfUrl: '/pdfs/cultivation-guide.pdf',
+        filename: 'เทคนิคการปลูกข้าวหอมมะลิ.pdf',
         readTime: '15 นาที',
         tags: ['ข้าวหอมมะลิ', 'การปลูก', 'เตรียมดิน', 'GAP'],
         author: 'กรมส่งเสริมการเกษตร',
@@ -43,7 +62,8 @@ const Knowledge = () => {
         title: 'การจัดการศัตรูพืชและโรคข้าวแบบผสมผสาน (IPM)',
         description: 'แนวทางการจัดการศัตรูพืชและโรคของข้าวโดยใช้วิธีผสมผสานระหว่างเคมี ชีวภาพ และการจัดการทางการเกษตร เพื่อลดต้นทุนและรักษาสิ่งแวดล้อม',
         type: 'document',
-        pdfUrl: 'https://www.ricethailand.go.th/rkb3/doc/ipm-guide.pdf',
+        pdfUrl: '/pdfs/ipm-guide.pdf',
+        filename: 'การจัดการศัตรูพืชและโรคข้าว.pdf',
         readTime: '25 นาที',
         tags: ['ศัตรูพืช', 'โรคข้าว', 'IPM', 'ชีวภาพ'],
         author: 'ศูนย์วิจัยข้าวปทุมธานี',
@@ -55,7 +75,8 @@ const Knowledge = () => {
         title: 'ระบบการให้น้ำข้าวแบบประหยัด (AWD)',
         description: 'เทคนิคการให้น้ำข้าวแบบ Alternate Wetting and Drying (AWD) เพื่อประหยัดน้ำ ลดการปล่อยก๊าซเรือนกระจก และเพิ่มผลผลิต',
         type: 'document',
-        pdfUrl: 'https://www.ricethailand.go.th/rkb3/doc/awd-technique.pdf',
+        pdfUrl: '/pdfs/awd-technique.pdf',
+        filename: 'ระบบการให้น้ำข้าวแบบประหยัด.pdf',
         readTime: '12 นาที',
         tags: ['การให้น้ำ', 'ประหยัดน้ำ', 'AWD', 'สิ่งแวดล้อม'],
         author: 'สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ',
@@ -67,7 +88,8 @@ const Knowledge = () => {
         title: 'การใช้ปุ๋ยอินทรีย์ในการปลูกข้าว',
         description: 'วิธีการผลิตและใช้ปุ๋ยอินทรีย์ เช่น ปุ๋ยหมัก ปุ๋ยชีวภาพ และปุ๋ยพืชสด เพื่อเพิ่มความอุดมสมบูรณ์ของดินและลดการใช้ปุ๋ยเคมี',
         type: 'document',
-        pdfUrl: 'https://www.ricethailand.go.th/rkb3/doc/organic-fertilizer.pdf',
+        pdfUrl: '/pdfs/organic-fertilizer.pdf',
+        filename: 'การใช้ปุ๋ยอินทรีย์.pdf',
         readTime: '18 นาที',
         tags: ['ปุ๋ยอินทรีย์', 'ปุ๋ยชีวภาพ', 'ดินอุดมสมบูรณ์', 'เกษตรยั่งยืน'],
         author: 'กรมพัฒนาที่ดิน',
@@ -81,7 +103,8 @@ const Knowledge = () => {
         title: 'กระบวนการสีข้าวและการรักษาคุณภาพ',
         description: 'ขั้นตอนการสีข้าวที่ถูกต้องเพื่อรักษาคุณภาพและคุณค่าทางโภชนาการ รวมถึงเทคโนโลยีการสีข้าวสมัยใหม่และการควบคุมคุณภาพ',
         type: 'document',
-        pdfUrl: 'https://www.ricethailand.go.th/rkb3/doc/rice-milling.pdf',
+        pdfUrl: '/pdfs/rice-milling.pdf',
+        filename: 'กระบวนการสีข้าว.pdf',
         readTime: '18 นาที',
         tags: ['การสีข้าว', 'คุณภาพ', 'การแปรรูป', 'เทคโนโลยี'],
         author: 'สถาบันวิจัยข้าว',
@@ -93,7 +116,8 @@ const Knowledge = () => {
         title: 'เทคโนโลยีการอบแห้งข้าวเปียก',
         description: 'วิธีการอบแห้งข้าวเปียกด้วยเทคโนโลยีสมัยใหม่ การควบคุมอุณหภูมิและความชื้น เพื่อรักษาคุณภาพและลดการสูญเสีย',
         type: 'document',
-        pdfUrl: 'https://www.ricethailand.go.th/rkb3/doc/rice-drying.pdf',
+        pdfUrl: '/pdfs/rice-drying.pdf',
+        filename: 'เทคโนโลยีการอบแห้งข้าว.pdf',
         readTime: '30 นาที',
         tags: ['การอบแห้ง', 'เทคโนโลยี', 'ข้าวเปียก', 'คุณภาพ'],
         author: 'สถาบันเทคโนโลยีการอาหาร',
@@ -105,7 +129,8 @@ const Knowledge = () => {
         title: 'การผลิตผลิตภัณฑ์จากข้าวกล้อง',
         description: 'เทคนิคการแปรรูปข้าวกล้องเป็นผลิตภัณฑ์ต่างๆ เช่น แป้งข้าวกล้อง น้ำมันรำข้าว และขนมจากข้าวกล้อง',
         type: 'document',
-        pdfUrl: 'https://www.ricethailand.go.th/rkb3/doc/brown-rice-products.pdf',
+        pdfUrl: '/pdfs/brown-rice-products.pdf',
+        filename: 'ผลิตภัณฑ์จากข้าวกล้อง.pdf',
         readTime: '22 นาที',
         tags: ['ข้าวกล้อง', 'ผลิตภัณฑ์', 'แปรรูป', 'มูลค่าเพิ่ม'],
         author: 'สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ',
