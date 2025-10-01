@@ -79,7 +79,7 @@ const Hero = () => {
                           <span className="text-2xl">🌾</span>
                         </div>
                         <p className="text-amber-800 font-bold text-lg">ข้าวไทย</p>
-                        <p className="text-amber-700 text-sm">คุณภาพพpremium</p>
+                        <p className="text-amber-700 text-sm">คุณภาพระดับpremium</p>
                       </div>
                     </div>
                   </div>
